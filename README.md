@@ -8,7 +8,7 @@ Pipecat AI is an open-source framework for building voice and multimodal convers
 ```bash
 python3.12 -m venv venv
 source venv/bin/activate
-pip install jupyterlab
+pip install -r requirements.txt
 python -m ipykernel install --user --name=venv --display-name "Python3.12"
 ```
 
@@ -16,7 +16,6 @@ python -m ipykernel install --user --name=venv --display-name "Python3.12"
 Add NVIDIA and OpenAI API keys to `.env`.
 ```bash
 cp example.env .env
-source .env
 ```
 
 ## Run the Jupyter Notebook
