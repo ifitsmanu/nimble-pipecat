@@ -13,9 +13,10 @@ python -m ipykernel install --user --name=venv --display-name "Python3.12"
 ```
 
 ## Setup environment
-Add NVIDIA and OpenAI API keys to `.env`.
+Add NVIDIA API key to `.env`.
 ```bash
 cp example.env .env
+# ... edit .env
 ```
 
 ## Run the Jupyter Notebook
