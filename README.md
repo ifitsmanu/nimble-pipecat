@@ -35,7 +35,8 @@ For convenience, a standalone pipecat can be found [here](./001-hello-pipecat-ni
 source .env
 python3.12 -m venv venv
 source venv/bin/activate
-pip install "pipecat-ai[daily,openai,riva,silero]"
+pip install "git+https://github.com/pipecat-ai/pipecat.git@main"
+# pip install "pipecat-ai[daily,openai,riva,silero]"
 python 001-hello-pipecat-nim.py
 ```
 
