@@ -20,15 +20,8 @@ cp example.env .env
 ```
 
 ## Run the Jupyter Notebook
-
-### macos
 ```bash
 python -m jupyter notebook
-```
-
-### linux
-```bash
-python -m jupyter lab
 ```
 
 Navigate to [`http://localhost:8888/notebooks/001-hello-pipecat-nim.ipynb`](http://localhost:8888/notebooks/001-hello-pipecat-nim.ipynb)
