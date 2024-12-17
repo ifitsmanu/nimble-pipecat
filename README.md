@@ -6,10 +6,10 @@ Pipecat AI is an open-source framework for building voice and multimodal convers
 
 ## Setup JupyterLab
 ```bash
-python3.10 -m venv venv
+python3.12 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-python -m ipykernel install --user --name=venv --display-name "Python3.10"
+python -m ipykernel install --user --name=venv --display-name "Python3.12"
 ```
 
 ## Setup environment
