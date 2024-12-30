@@ -1,1 +1,1 @@
-prompt-khk.txt
+prompts/prompt-vp.txt

@@ -29,15 +29,13 @@ Navigate to [`http://localhost:8888/notebooks/001-hello-pipecat-nim.ipynb`](http
 ## Extras
 
 ### Run in a command line environment
-For convenience, a standalone pipecat can be found [here](./001-hello-pipecat-nim.py)
+For convenience, a standalone pipecat can be found [here](./001-hello-pipecat-nim.py). Edit the system prompt in a separate file in [./prompts/](./prompts) and then update the [prompt.txt](./prompt.txt) symlink.
 
 ```bash
 source .env
 python3.12 -m venv venv
 source venv/bin/activate
-pip install "git+https://github.com/pipecat-ai/pipecat.git@main"
-pip install "pipecat-ai[daily,openai,riva,silero]"
-pip install noaa_sdk
+pip install "pipecat-ai[daily,openai,riva,silero]" noaa_sdk
 python 001-hello-pipecat-nim.py
 ```
 
