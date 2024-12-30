@@ -66,10 +66,10 @@ async def main():
     stt = ParakeetSTTService(api_key=os.getenv("NVIDIA_API_KEY"))
 
     allowed_services = [NimLLMService, TogetherLLMService]  # prevent imports from being removed
-    llm = NimLLMService(api_key=os.getenv("NVIDIA_API_KEY"), model="meta/llama-3.3-70b-instruct")
-    # llm = TogetherLLMService(
-    #     api_key=os.getenv("TOGETHER_API_KEY"), model="meta-llama/Llama-3.3-70B-Instruct-Turbo"
-    # )
+    # llm = NimLLMService(api_key=os.getenv("NVIDIA_API_KEY"), model="meta/llama-3.3-70b-instruct")
+    llm = TogetherLLMService(
+        api_key=os.getenv("TOGETHER_API_KEY"), model="meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    )
 
     tts = FastPitchTTSService(api_key=os.getenv("NVIDIA_API_KEY"))
 
@@ -93,6 +93,10 @@ async def main():
                     break
 
             fahrenheit_temp = (celcius_temp * 9 / 5) + 32
+
+            # fallback to temperature if no description in any of the observations
+            if not description:
+                description = fahrenheit_temp
         except Exception as e:
             print(f"Error getting noaa weather: {e}")
 
@@ -142,7 +146,7 @@ async def main():
                             "description": "Infer the longitude from the location. Supply longitude as a string. For example, '-71.0589'.",
                         },
                     },
-                    "required": ["location"],
+                    "required": ["location", "latitude", "longitude"],
                 },
             },
         ),
