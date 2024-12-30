@@ -44,11 +44,11 @@ async def main():
     print(
         "___________________________________* https://pc-34b1bdc94a7741719b57b2efb82d658e.daily.co/pipecat"
     )
-    print("___________________________________* to talk to NVIDIA NIM bot.")
+    print("___________________________________* to talk to NVIDIA NIM Agent Lydia.")
     print("___________________________________*")
     print("___________________________________*")
 
-    # Url to talk to the NVIDIA NIM bot
+    # Url to talk to the NVIDIA NIM agent
     room_url = "https://pc-34b1bdc94a7741719b57b2efb82d658e.daily.co/pipecat"
 
     transport = DailyTransport(
@@ -91,7 +91,7 @@ async def main():
             fahrenheit_temp = (celcius_temp * 9 / 5) + 32
 
             # fallback to temperature if no description in any of the observations
-            if not description:
+            if fahrenheit_temp and not description:
                 description = fahrenheit_temp
         except Exception as e:
             print(f"Error getting noaa weather: {e}")
