@@ -66,10 +66,10 @@ async def main():
     stt = ParakeetSTTService(api_key=os.getenv("NVIDIA_API_KEY"))
 
     allowed_services = [NimLLMService, TogetherLLMService]  # prevent imports from being removed
-    # llm = NimLLMService(api_key=os.getenv("NVIDIA_API_KEY"), model="meta/llama-3.3-70b-instruct")
-    llm = TogetherLLMService(
-        api_key=os.getenv("TOGETHER_API_KEY"), model="meta-llama/Llama-3.3-70B-Instruct-Turbo"
-    )
+    llm = NimLLMService(api_key=os.getenv("NVIDIA_API_KEY"), model="meta/llama-3.3-70b-instruct")
+    # llm = TogetherLLMService(
+    #     api_key=os.getenv("TOGETHER_API_KEY"), model="meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    # )
 
     tts = FastPitchTTSService(api_key=os.getenv("NVIDIA_API_KEY"))
 
