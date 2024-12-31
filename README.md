@@ -1,4 +1,4 @@
-# Voice Agent for Conversational AI with Pipecat
+# Voice Agent Framework for Conversational AI
 
 A blueprint notebook showcasing Pipecat AI and NIM in the creation of an AI voice agent. It uses the `meta/llama-3.3-70b-instruct` LLM model and Riva for STT & TTS. The intention is a launchable on the [brev.dev](brev.dev) platform.
 
