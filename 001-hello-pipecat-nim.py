@@ -90,7 +90,7 @@ async def main():
             print(f"Starting fetch_weather_from_api with function_name: {function_name}")
 
         async def get_noaa_simple_weather(latitude: float, longitude: float, **kwargs):
-            print(f"noaa get simple weather for '{latitude}, {longitude}'")
+            print(f"NOAA get simple weather for '{latitude}, {longitude}'")
             n = NOAA()
             description = False
             fahrenheit_temp = 0
@@ -98,17 +98,17 @@ async def main():
                 observations = n.get_observations_by_lat_lon(latitude, longitude, num_of_stations=1)
                 for observation in observations:
                     description = observation["textDescription"]
-                    celcius_temp = observation["temperature"]["value"]
+                    celsius_temp = observation["temperature"]["value"]
                     if description:
                         break
 
-                fahrenheit_temp = (celcius_temp * 9 / 5) + 32
+                fahrenheit_temp = (celsius_temp * 9 / 5) + 32
 
                 # fallback to temperature if no description in any of the observations
                 if fahrenheit_temp and not description:
                     description = fahrenheit_temp
             except Exception as e:
-                print(f"Error getting noaa weather: {e}")
+                print(f"Error getting NOAA weather: {e}")
 
             return description, fahrenheit_temp
 
