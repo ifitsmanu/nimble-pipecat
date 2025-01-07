@@ -1,6 +1,6 @@
 # Voice Agent Framework for Conversational AI
 
-A blueprint notebook showcasing Pipecat AI and NIM in the creation of an AI voice agent. It uses the `meta/llama-3.3-70b-instruct` LLM model and Riva for STT & TTS. This a launchable on the [brev.dev](brev.dev) platform.
+A blueprint notebook showcasing Pipecat AI and NIM in the creation of an AI voice agent. It uses the `meta/llama-3.3-70b-instruct` LLM model and Riva for STT & TTS. This a [launchable on the brev](https://console.brev.dev/launchable/deploy?launchableID=env-2qMHWqvRNPy3P6fKUuQyrJsAiSc) platform.
 
 **[Pipecat AI](https://github.com/pipecat-ai/pipecat)** is an open-source framework for building voice and multimodal conversational agents. Pipecat simplifies the complex voice-to-voice AI pipeline, and lets developers build AI capabilities easily and with Open Source, commercial, and custom models. The framework was developed by [Daily](https://daily.co/), a company that has provided real-time video and audio communication infrastructure since 2016. It is fully vendor neutral and is not tightly coupled to Daily's infrastructure.
 
