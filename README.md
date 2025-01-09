@@ -45,7 +45,7 @@ For convenience, a standalone pipecat can be found [here](./001-hello-pipecat-ni
 source .env
 python3.12 -m venv venv
 source venv/bin/activate
-pip install "pipecat-ai[daily,openai,riva,silero]" noaa_sdk
+pip install "pipecat-ai[daily,openai,riva,silero]" noaa_sdk python-dotenv
 python 001-hello-pipecat-nim.py
 ```
 

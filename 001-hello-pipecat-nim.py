@@ -14,6 +14,7 @@ import os
 import sys
 
 from loguru import logger
+from dotenv import load_dotenv
 
 from noaa_sdk import NOAA
 from openai.types.chat import ChatCompletionToolParam
@@ -26,13 +27,12 @@ from pipecat.pipeline.task import PipelineParams, PipelineTask
 from pipecat.processors.aggregators.openai_llm_context import OpenAILLMContext
 from pipecat.services.nim import NimLLMService
 from pipecat.services.riva import FastPitchTTSService, ParakeetSTTService
-from pipecat.services.together import TogetherLLMService
 from pipecat.transports.services.daily import DailyParams, DailyTransport
 from pipecat.transports.services.helpers.daily_rest import DailyRESTHelper, DailyRoomParams
 
-
 logger.remove(0)
 logger.add(sys.stderr, level="DEBUG")
+load_dotenv()
 
 # Load SYSTEM_PROMPT content from file 'prompt.txt'
 with open("prompt.txt", "r") as f:
