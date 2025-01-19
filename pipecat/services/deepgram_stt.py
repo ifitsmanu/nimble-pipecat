@@ -83,6 +83,7 @@ class DeepgramSTTService:
             if message and 'channel' in message and 'alternatives' in message['channel']:
                 text = message['channel']['alternatives'][0].get('transcript', '')
                 if text:
+                    logger.info(f"Transcribed text: {text}")
                     asyncio.get_event_loop().call_soon_threadsafe(
                         lambda: self.transcript_queue.put_nowait(text)
                     )

@@ -62,6 +62,7 @@ class DeepgramTTSService:
                 audio_data = await response.read()
             
             if audio_data:
+                logger.info("Generated TTS audio data successfully")
                 return {
                     "audio": {
                         "data": audio_data,
