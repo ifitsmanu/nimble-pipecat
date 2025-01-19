@@ -26,7 +26,8 @@ from pipecat.pipeline.runner import PipelineRunner
 from pipecat.pipeline.task import PipelineParams, PipelineTask
 from pipecat.processors.aggregators.openai_llm_context import OpenAILLMContext
 from pipecat.services.nim import NimLLMService
-from pipecat.services.riva import FastPitchTTSService, ParakeetSTTService
+from pipecat.services.deepgram_stt import DeepgramSTTService
+from pipecat.services.deepgram_tts import DeepgramTTSService
 from pipecat.transports.services.daily import DailyParams, DailyTransport
 from pipecat.transports.services.helpers.daily_rest import DailyRESTHelper, DailyRoomParams
 
@@ -42,7 +43,7 @@ with open("prompt.txt", "r") as f:
 async def main():
     async with aiohttp.ClientSession() as session:
         daily_rest_helper = DailyRESTHelper(
-            daily_api_key=os.getenv("DAILY_API_KEY"),
+            daily_api_key=os.getenv("DAILY_API_KEY", ""),  # Default empty string for type safety
             daily_api_url=os.getenv("DAILY_API_URL", "https://api.daily.co/v1"),
             aiohttp_session=session,
         )
@@ -77,11 +78,11 @@ async def main():
             ),
         )
 
-        stt = ParakeetSTTService(api_key=os.getenv("NVIDIA_API_KEY"))
+        stt = DeepgramSTTService(api_key=os.getenv("DEEPGRAM_API_KEY", ""))  # Default empty string for type safety
 
-        llm = NimLLMService(api_key=os.getenv("NVIDIA_API_KEY"), model="meta/llama-3.3-70b-instruct")
+        llm = NimLLMService(api_key=os.getenv("NVIDIA_API_KEY", ""), model="meta/llama-3.3-70b-instruct")
 
-        tts = FastPitchTTSService(api_key=os.getenv("NVIDIA_API_KEY"))
+        tts = DeepgramTTSService(api_key=os.getenv("DEEPGRAM_API_KEY", ""))  # Default empty string for type safety
 
         messages = [{"role": "system", "content": SYSTEM_PROMPT}]
 
